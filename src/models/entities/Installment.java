@@ -1,8 +1,6 @@
-package entities;
+package models.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Installment {
     private LocalDate dueDate;
