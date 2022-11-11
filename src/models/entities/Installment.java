@@ -1,8 +1,13 @@
 package models.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+// installment = prestações
 public class Installment {
+
+    // DateTimeFormatter is static because it's for all
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate dueDate;
     private Double amount;
 
@@ -27,5 +32,10 @@ public class Installment {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return getDueDate().format(dtf) + " - " + String.format("%.2f", getAmount());
     }
 }
