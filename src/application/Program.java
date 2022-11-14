@@ -3,6 +3,7 @@ package application;
 import models.entities.Contract;
 import models.entities.Installment;
 import models.services.ContractService;
+import models.services.PaypalService;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -32,7 +33,7 @@ public class Program {
         int numberOfMonths = sc.nextInt();
 
         // Now we use ContractService
-        ContractService contractService = new ContractService(null);
+        ContractService contractService = new ContractService(new PaypalService());
 
         // Generating installments
         contractService.processContract(contract, numberOfMonths);
